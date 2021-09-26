@@ -101,7 +101,7 @@ class SavedScreen extends StatelessWidget
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("saved Words"),
+        title: Text("Saved Words-Move 2 Delete"),
         leading: BackButton(onPressed: (){
           Navigator.pop(context);
         },),
@@ -112,22 +112,26 @@ class SavedScreen extends StatelessWidget
 
   Widget getList (BuildContext context)
   {
-    var tiles = savedPair.map((pair){
-      return ListTile(
-        title: Text(
-            pair.toString(),
-            style: TextStyle(fontSize: 20.0),
-        ),
-      );
-    });
+    final item = savedPair.toList();
+    final listview = ListView.builder(
+      itemCount: savedPair.length,
+      itemBuilder: (context, index) {
+        final info = item[index].toString();
+        return Dismissible(
+            key: Key(info),
+            background: Container(color: Colors.red,),
+            onDismissed: (direction){
+            item.removeAt(index);
+            Scaffold.of(context).showBottomSheet((context) => Text("dismissed $info"));
+          },
+            child: ListTile(
+              title: Text(info, style: TextStyle(fontSize: 18),),
+            ),
+        );
+      },
+    );
 
-    final divided = ListTile
-        .divideTiles(
-      context: context,
-      tiles: tiles,
-    ).toList();
-
-    return ListView(children: divided);
+    return listview;
   }
 
 }

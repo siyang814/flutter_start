@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:my_start/AnimatedListSample.dart';
+import 'package:my_start/AppBarBottomSample.dart';
+import 'package:my_start/BasicAppBarSample.dart';
+import 'package:my_start/ExpansionTileSample.dart';
+import 'package:my_start/Global.dart';
 import 'package:my_start/MyImage.dart';
 import 'package:my_start/MyFirstApp.dart';
+import 'package:my_start/TabbedAppBarSample.dart';
 
 
-void main() {
-  runApp(const MyApp());
-}
+// void main() {
+//   runApp( MyApp());
+// }
+
+void main()=>MyGlobal.init().then((value) => runApp(MyApp()));
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -54,24 +62,9 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            ElevatedButton(
-              child: Text("我的第一个应用"),
-              onPressed: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MyFirstApp()));
-              },
-            ),
-            ElevatedButton(
-              child: Text("图片"),
-              onPressed: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MyImage()));
-              },
-            ),
-          ],
-        ),
+      body: Padding(
+        padding: EdgeInsets.all(10),
+        child: MyGridView(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
@@ -81,3 +74,56 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+class MyGridView extends StatelessWidget
+{
+  @override
+  Widget build(BuildContext context) {
+    final GridView gridView;
+    gridView = GridView.builder(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        childAspectRatio: 5/1,
+      ),
+      itemCount: MyGlobal.mainStr.length,
+      shrinkWrap: true, //父亲自适应高度
+      scrollDirection: Axis.vertical,   //滚动方向
+
+      itemBuilder: (context, index) {
+        var item = ElevatedButton(
+          child: Text(MyGlobal.mainStr[index], style: TextStyle(fontSize: 18),),
+          onPressed: (){
+            switch(index)
+            {
+              case 0:
+                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MyFirstApp()));
+                break;
+              case 1:
+                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MyImage()));
+                break;
+              case 2:
+                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AnimatedListSample()));
+                break;
+              case 3:
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => AppBarBottomSample(),));
+                break;
+              case 4:
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => BasicAppBarSample(),));
+                break;
+              case 5:
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => ExpansionTileSample(),));
+                break;
+              case 6:
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => TabbedAppBarSample(),));
+                break;
+            }
+          },
+        );
+        return item;
+    },);
+    return gridView;
+  }
+}
+
