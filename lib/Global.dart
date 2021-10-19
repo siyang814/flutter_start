@@ -14,7 +14,24 @@ class MyGlobal
     mainStr.add("BasicAppBarSample");
     mainStr.add("ExpansionTile");
     mainStr.add("TabbedAppBarSample");
-    // mainStr.add("图片");
+    mainStr.add("MyLayout");
+    mainStr.add("Animation");
+    mainStr.add("HeroAnimation转场动画");
+    mainStr.add('PlatformChannel');
+    mainStr.add("本地存储Provider");
+    mainStr.add('打开百度');
+    mainStr.add("http");
+
+
+
+
+
+
+
+
+
+
+
   }
 
 }

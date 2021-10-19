@@ -4,9 +4,17 @@ import 'package:my_start/AppBarBottomSample.dart';
 import 'package:my_start/BasicAppBarSample.dart';
 import 'package:my_start/ExpansionTileSample.dart';
 import 'package:my_start/Global.dart';
+import 'package:my_start/MyAnimation.dart';
 import 'package:my_start/MyImage.dart';
 import 'package:my_start/MyFirstApp.dart';
+import 'package:my_start/MyLayout.dart';
+import 'package:my_start/MyProvider.dart';
+import 'package:my_start/PlatformChannel.dart';
 import 'package:my_start/TabbedAppBarSample.dart';
+
+import 'HeroAnimation.dart';
+import 'http/MyHttp.dart';
+import 'MyUrlLaucher.dart';
 
 
 // void main() {
@@ -117,6 +125,27 @@ class MyGridView extends StatelessWidget
                 break;
               case 6:
                 Navigator.of(context).push(MaterialPageRoute(builder: (context) => TabbedAppBarSample(),));
+                break;
+              case 7:
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyLayout(),));
+                break;
+              case 8:
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyAnimation(),));
+                break;
+              case 9:
+                Navigator.of(context).push(MaterialPageRoute(builder: (context)=> HeroAnimation()));
+                break;
+              case 10:
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => PlatformChannel(),));
+                break;
+              case 11:
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyProvider(),));
+                break;
+              case 12:
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyUrlLaucher(),));
+                break;
+              case 13:
+                Navigator.push(context, MaterialPageRoute(builder: (context) => MyHttp(),));
                 break;
             }
           },

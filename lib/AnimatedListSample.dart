@@ -77,6 +77,11 @@ class _AnimatedListSampleState extends State<AnimatedListSample> {
       home: new Scaffold(
         appBar: new AppBar(
           title: const Text('AnimatedList'),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: ()=> Navigator.pop(context),
+            tooltip: "返回",
+          ),
           actions: <Widget>[
             new IconButton(
               icon: const Icon(Icons.add_circle),
@@ -119,7 +124,7 @@ class ListModel<E> {
     required Iterable<E> initialItems,
   }) : assert(listKey != null),
         assert(removedItemBuilder != null),
-        _items = new List<E>.from(initialItems ?? <E>[]);
+        _items = new List<E>.from(initialItems);
 
   final GlobalKey<AnimatedListState> listKey;
   final dynamic removedItemBuilder;
