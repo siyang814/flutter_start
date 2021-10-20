@@ -110,11 +110,6 @@ class _MyHttpState extends State<MyHttp>
             child: Text("model2Json is $_model2JsonStr"),
           ),
           ElevatedButton(onPressed: _model2Json, child: Text("按我Model2Json")),
-          Padding(
-            padding: EdgeInsets.all(20),
-            child: Text("model2Json is $_model2JsonStr"),
-          ),
-          ElevatedButton(onPressed: _model2Json, child: Text("按我使用插件处理")),
         ],
       ),
     );

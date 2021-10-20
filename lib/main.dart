@@ -11,6 +11,7 @@ import 'package:my_start/MyLayout.dart';
 import 'package:my_start/MyProvider.dart';
 import 'package:my_start/PlatformChannel.dart';
 import 'package:my_start/TabbedAppBarSample.dart';
+import 'package:my_start/myjson/MyJson.dart';
 
 import 'HeroAnimation.dart';
 import 'http/MyHttp.dart';
@@ -146,6 +147,9 @@ class MyGridView extends StatelessWidget
                 break;
               case 13:
                 Navigator.push(context, MaterialPageRoute(builder: (context) => MyHttp(),));
+                break;
+              case 14:
+                Navigator.push(context, MaterialPageRoute(builder: (context) => MyJson(),));
                 break;
             }
           },

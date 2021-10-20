@@ -21,6 +21,7 @@ class MyGlobal
     mainStr.add("本地存储Provider");
     mainStr.add('打开百度');
     mainStr.add("http");
+    mainStr.add("json");
 
 
 
