@@ -11,9 +11,23 @@ import 'package:my_start/MyLayout.dart';
 import 'package:my_start/MyProvider.dart';
 import 'package:my_start/PlatformChannel.dart';
 import 'package:my_start/TabbedAppBarSample.dart';
+import 'package:my_start/clip/MyClip.dart';
+import 'package:my_start/fittedbox/MyFittedBox.dart';
+import 'package:my_start/layoutbuilder/ResponsiveColumn.dart';
+import 'package:my_start/list/MyList.dart';
+import 'package:my_start/list/MyListMain.dart';
 import 'package:my_start/myjson/MyJson.dart';
+import 'package:my_start/progress/MyProgress.dart';
+import 'package:my_start/relative/RelativeMain.dart';
+import 'package:my_start/scaffold/MyScaffold.dart';
+import 'package:my_start/switchandcheckbox/SwitchAndCheckBox.dart';
+import 'package:my_start/textfield/MyTextField.dart';
+import 'package:my_start/transform/MyTransform.dart';
+import 'package:my_start/util/Common.dart';
+import 'package:my_start/mycontainer/MyDecorateBox.dart';
 
 import 'HeroAnimation.dart';
+import 'container/MyContainer.dart';
 import 'http/MyHttp.dart';
 import 'MyUrlLaucher.dart';
 
@@ -91,7 +105,7 @@ class MyGridView extends StatelessWidget
     final GridView gridView;
     gridView = GridView.builder(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
+        crossAxisCount: 3,
         crossAxisSpacing: 10,
         mainAxisSpacing: 10,
         childAspectRatio: 5/1,
@@ -102,7 +116,7 @@ class MyGridView extends StatelessWidget
 
       itemBuilder: (context, index) {
         var item = ElevatedButton(
-          child: Text(MyGlobal.mainStr[index], style: TextStyle(fontSize: 18),),
+          child: Text(MyGlobal.mainStr[index], style: TextStyle(fontSize: 14),),
           onPressed: (){
             switch(index)
             {
@@ -150,6 +164,42 @@ class MyGridView extends StatelessWidget
                 break;
               case 14:
                 Navigator.push(context, MaterialPageRoute(builder: (context) => MyJson(),));
+                break;
+              case 15:
+                Navigator.push(context, MaterialPageRoute(builder: (context) => SwitchAndCheckBox(),));
+                break;
+              case 16:
+                Navigator.push(context, MaterialPageRoute(builder: (context) => MyTextField(),));
+                break;
+              case 17:
+                Navigator.push(context, MaterialPageRoute(builder: (context) => MyProgress(),));
+                break;
+              case 18:
+                Navigator.push(context, MaterialPageRoute(builder: (context) => LayoutBuilderRoute(),));
+                break;
+              case 19:
+                Common.pushCupertino(context, RelativeMain());
+                break;
+              case 20:
+                Common.pushCupertino(context, MyDecorateBox());
+                break;
+              case 21:
+                Common.pushCupertino(context, MyTransform());
+                break;
+              case 22:
+                Common.pushCupertino(context, MyContainer());
+                break;
+              case 23:
+                Common.pushCupertino(context, MyClip());
+                break;
+              case 24:
+                Common.pushCupertino(context, MyFittedBox());
+                break;
+              case 25:
+                Common.pushCupertino(context, MyScaffold());
+                break;
+              case 26:
+                Common.pushCupertino(context, MyListMain());
                 break;
             }
           },

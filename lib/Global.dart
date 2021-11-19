@@ -21,8 +21,19 @@ class MyGlobal
     mainStr.add("本地存储Provider");
     mainStr.add('打开百度');
     mainStr.add("http");
-    mainStr.add("json");
-
+    mainStr.add("json_serializable");
+    mainStr.add("SwitchAndCheckBox");
+    mainStr.add("输入框");
+    mainStr.add("progress");
+    mainStr.add("LayoutBuilder");
+    mainStr.add("Relative");
+    mainStr.add("容器");
+    mainStr.add("transform");
+    mainStr.add("container");
+    mainStr.add("clip");
+    mainStr.add("fittedbox");
+    mainStr.add("scaffold");
+    mainStr.add("list");
 
 
 
