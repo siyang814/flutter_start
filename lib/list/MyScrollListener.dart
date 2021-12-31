@@ -13,6 +13,8 @@ class MyScrollListener extends StatefulWidget
 class _MyScrollListenerState extends State<MyScrollListener>
 {
   String _progress = "0%";
+  int _max = 0;
+  int _current = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -31,16 +33,31 @@ class _MyScrollListenerState extends State<MyScrollListener>
                     itemExtent: 50,
                     itemBuilder: (context, index) => ListTile(title: Text("index is $index"),),
                 ),
-                CircleAvatar(
-                  radius: 30,
-                  child: Text(_progress),
-                  backgroundColor: Colors.black54,
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CircleAvatar(
+                      radius: 30,
+                      child: Text(_progress),
+                      backgroundColor: Colors.black54,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 20),
+                      child: Text(
+                        "max=${_max};current=${_current}",
+                      ),
+                    ),
+
+                  ],
                 ),
+
               ],
             ),
           onNotification: (notification) {
               double progress = notification.metrics.pixels / notification.metrics.maxScrollExtent;
               setState(() {
+                _max = notification.metrics.maxScrollExtent.toInt();
+                _current = notification.metrics.pixels.toInt();
                 _progress = "${(progress * 100).toInt()}%";
               });
               print("BottomEdge: ${notification.metrics.extentAfter == 0}");

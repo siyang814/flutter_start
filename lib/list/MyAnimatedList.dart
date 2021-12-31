@@ -57,14 +57,17 @@ class MyAnimatedListState extends State<MyAnimatedList>
   Widget _bulidItem (BuildContext context, int index)
   {
     var str = data[index];
-    return ListTile(
-      key: ValueKey(str),
-      title: Text(
-        str
-      ),
-      trailing: IconButton(
-          onPressed: () => _delete(context, index),
-          icon: Icon(Icons.delete)
+    return Container(
+      color: Colors.red,
+      child: ListTile(
+        key: ValueKey(str),
+        title: Text(
+            str
+        ),
+        trailing: IconButton(
+            onPressed: () => _delete(context, index),
+            icon: Icon(Icons.delete)
+        ),
       ),
     );
   }
@@ -114,7 +117,7 @@ class MyAnimatedListState extends State<MyAnimatedList>
             ),
           );
         },
-        duration: Duration(milliseconds: 200), // 动画时间为 200 ms
+        duration: Duration(milliseconds: 2000), // 动画时间为 200 ms
       );
     });
   }

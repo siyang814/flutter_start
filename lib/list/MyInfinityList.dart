@@ -36,7 +36,7 @@ class _MyInfinityListState extends State<MyInfinityList>
                   child: SizedBox(
                     width: 24,
                     height: 24,
-                    child: CircularProgressIndicator(strokeWidth: 2,),
+                    child: CircularProgressIndicator(strokeWidth: 5,),
                   ),
                 );
               }
@@ -63,7 +63,7 @@ class _MyInfinityListState extends State<MyInfinityList>
 
   _retrieveData ()
   {
-    Future.delayed(Duration(seconds: 2)).then((value){
+    Future.delayed(Duration(seconds: 1)).then((value){
       setState(() {
         _words.insertAll(_words.length - 1,
             generateWordPairs().take(20).map((e) => e.asPascalCase).toList(),

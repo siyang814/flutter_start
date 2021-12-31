@@ -24,7 +24,7 @@ class _MyExpandedListState extends State<MyExpandedList>
         Expanded(
             child: ListView.separated(
                 itemBuilder: (context, index) => ListTile(title: Text("index is ${index + 1}"),),
-                separatorBuilder: (context, index) => Divider(height: 0.0,),
+                separatorBuilder: (context, index) => Divider(height: 0.0, color: Colors.transparent,),
                 itemCount: 40)),
       ],
     );
